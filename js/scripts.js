@@ -9,7 +9,9 @@ var tDisplay = document.getElementById('time'),
     intervalLabel = document.getElementsByClassName('ctl-label')[0],
     breakLabel = document.getElementsByClassName('ctl-label')[1],
     minuteHand = document.getElementById('minuteHand'),
-    secondHand = document.getElementById('secondHand');
+    secondHand = document.getElementById('secondHand'),
+    audio = new Audio('chimes.mp3');
+// audio is first 10 seconds from http://www.freesound.org/people/juskiddink/sounds/86277/
 
 // pomodoro module
 var Pom = (function(){
@@ -54,6 +56,7 @@ var Pom = (function(){
         _updateDisplay();
         if (count === 0) {
             clearInterval(timer);
+            audio.play();
             if(onBreak) {
                 init();
                 onBreak = false;
