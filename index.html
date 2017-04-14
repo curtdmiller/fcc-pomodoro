@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Pomodoro</title>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <svg width="400" height="400">
+        <g transform="translate(200,200)">
+            <text x="-43" y="-60" font-family="Courier, monospace" font-size="10" font-style="italic">free code camp</text>
+            <text id="time" x="-30" y="80" font-family="Courier, monospace" font-size="20"></text>
+            <g transform="rotate(-90.5)">
+                <circle cx="0" cy="0" r="153"  fill="none" stroke="black" stroke-width="5px" stroke-dasharray="1 15.02212253330794" transform="rotate(0,200,200)"></circle>
+                <circle cx="0" cy="0" r="150"  fill="none" stroke="black" stroke-width="12px" stroke-dasharray="2 76.53981633974483"></circle>
+                <circle cx="0" cy="0" r="8" fill="#555"></circle>
+            </g>
+            <line class="hand" id="minuteHand" x1="0" y1="0" x2="0" y2="-80" stroke="#555" stroke-width="4px" stroke-linecap="round" transform="rotate(10)"></line>
+            <line class="hand" id="secondHand" x1="0" y1="0" x2="0" y2="-120" stroke="red" stroke-width="2px" stroke-linecap="round" transform="rotate(0)"></line>
+            <circle cx="0" cy="0" r="4" stroke="red" stroke-width="2" fill="#333"></circle>
+        </g>
+    </svg>
+    <div class="ctl">
+        <div class="ctl-pom">
+            <button type="button" name="start" id="start">Start</button>
+            <button type="button" name="pause" id="pause">Pause</button>
+            <button type="button" name="reset" id="reset">Reset</button>
+        </div>
+        <div class="ctl-time">
+            <div class="interval-ctl">
+                <h4>work length</h4>
+                <button type="button" name="interval-dec" id="work-int-dec">&minus;</button>
+                <p class="ctl-label">25</p>
+                <button type="button" name="interval-inc" id="work-int-inc">&plus;</button>
+            </div>
+            <div class="break-ctl">
+                <h4>break length</h4>
+                <button type="button" name="break-dec" id="break-int-dec">&minus;</button>
+                <p class="ctl-label">5</p>
+                <button type="button" name="break-inc" id="break-int-inc">&plus;</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/scripts.js" charset="utf-8"></script>
+</body>
+</html>
