@@ -29,19 +29,23 @@
             <button type="button" name="reset" id="reset">Reset</button>
         </div>
         <div class="ctl-time">
-            <div class="interval-ctl">
+            <div>
                 <h4>work length</h4>
                 <button type="button" name="interval-dec" id="work-int-dec">&minus;</button>
                 <p class="ctl-label">25</p>
                 <button type="button" name="interval-inc" id="work-int-inc">&plus;</button>
             </div>
-            <div class="break-ctl">
+            <div>
                 <h4>break length</h4>
                 <button type="button" name="break-dec" id="break-int-dec">&minus;</button>
                 <p class="ctl-label">5</p>
                 <button type="button" name="break-inc" id="break-int-inc">&plus;</button>
             </div>
         </div>
+    </div>
+    <div class="status">
+        <p>Completed Work Intervals: <span class="completed">0</span></p>
+        <p>Status: <span class="paused">Paused</span><span class="working">Working</span><span class="onBreak">On Break</span></p>
     </div>
     <script src="js/scripts.js" charset="utf-8"></script>
 </body>

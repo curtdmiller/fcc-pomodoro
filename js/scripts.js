@@ -10,6 +10,10 @@ var tDisplay = document.getElementById('time'),
     breakLabel = document.getElementsByClassName('ctl-label')[1],
     minuteHand = document.getElementById('minuteHand'),
     secondHand = document.getElementById('secondHand'),
+    completed = document.getElementsByClassName('completed')[0],
+    paused = document.getElementsByClassName('paused')[0],
+    working = document.getElementsByClassName('working')[0],
+    breaking = document.getElementsByClassName('onBreak')[0],
     audio = new Audio('chimes.mp3');
 // audio is first 10 seconds from http://www.freesound.org/people/juskiddink/sounds/86277/
 
@@ -19,7 +23,8 @@ var Pom = (function(){
         brk = 300, // 5 minutes
         onBreak = false,
         count,
-        timer;
+        timer,
+        totalIntervals = 0;
 
     function init(){
         count = pomodoro;
@@ -29,9 +34,20 @@ var Pom = (function(){
         if (timer) {
             clearInterval(timer);
         }
+        paused.style.display = "none";
+        if (onBreak) {
+            working.style.display = "none";
+            breaking.style.display = "inline";
+        } else {
+            working.style.display = "inline";
+            breaking.style.display = "none";
+        }
         timer = setInterval(_countDown, 1000);
     }
     function pause() {
+        paused.style.display = "inline";
+        working.style.display = "none";
+        breaking.style.display = "none";
         clearInterval(timer);
     }
     function reset(){
@@ -49,6 +65,8 @@ var Pom = (function(){
     function _startBreak() {
         count = brk;
         _updateDisplay();
+        working.style.display = "none";
+        breaking.style.display = "inline";
         timer = setInterval(_countDown, 1000);
     }
     function _countDown(){
@@ -62,6 +80,8 @@ var Pom = (function(){
                 onBreak = false;
                 start();
             } else {
+                totalIntervals++;
+                completed.innerHTML = totalIntervals;
                 onBreak = true;
                 _startBreak();
             }

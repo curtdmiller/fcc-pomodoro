@@ -65,3 +65,29 @@ h4 {
     font-family: sans-serif;
     font-weight: 200;
 }
+.status {
+    font-family: sans-serif;
+    font-weight: 200;
+    margin-top: 80px;
+    text-align: center;
+}
+.status > p {
+    margin: 5px;
+}
+.completed {
+    font-weight: bold;
+}
+.paused {
+    font-weight: bold;
+    color: #aaa;
+}
+.onBreak {
+    display: none;
+    font-weight: bold;
+    color: #3c3;
+}
+.working {
+    display: none;
+    font-weight: bold;
+    color: #6cf;
+}
